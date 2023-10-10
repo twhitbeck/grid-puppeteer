@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!--
+      This is an HTML comment
+      You can write text in a comment and the content won't be visible in the page
+    -->
+
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://glitch.com/favicon.ico" />
+
+    <!--
+      This is the page head - it contains info the browser uses
+      Like the title, which appears on the browser tab but not inside the page
+      Further down you'll see the content that displays in the page
+    -->
+    <title>Hello World!</title>
+
+    <script src="https://cdn.jsdelivr.net/npm/ag-grid-community/dist/ag-grid-community.min.js"></script>
+  </head>
+  <body>
+    <div
+      id="myGrid"
+      style="height: 200px; width: 500px"
+      class="ag-theme-alpine"
+    ></div>
+
+    <script>
+      // setup the grid after the page has finished loading
+      document.addEventListener("DOMContentLoaded", () => {
+        const gridDiv = document.querySelector("#myGrid");
+        new agGrid.Grid(gridDiv, {
+          columnDefs: [
+            { field: "make" },
+            { field: "model" },
+            { field: "price" },
+          ],
+          rowData: __DATA__,
+        });
+      });
+    </script>
+  </body>
+</html>
